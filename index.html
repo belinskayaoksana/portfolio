@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <title>Oksana Tymchenko — AI Automation & Workspace</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Oksana Tymchenko — AI Automation, Google Workspace, Finance & HR, Cloud & API Integration."
+  />
+
+  <style>
+    :root {
+      /* Теплі нейтральні кольори */
+      --bg-gradient-start: #c79a7b;
+      --bg-gradient-end: #5c2c28;
+      --card-bg: rgba(60, 21, 21, 0.88);
+      --card-bg-soft: rgba(60, 21, 21, 0.75);
+      --accent: #f5d9b4;
+      --accent-soft: #e8ccb0;
+      --text-main: #fdf7f2;
+      --text-muted: #f1e1d5;
+      --link: #f5d9b4;
+      --chip-bg: rgba(245, 217, 180, 0.12);
+      --chip-border: rgba(245, 217, 180, 0.4);
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.45);
+      --radius-lg: 26px;
+      --radius-xl: 40px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top, var(--bg-gradient-start), var(--bg-gradient-end));
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 960px;
+      padding: 24px 16px 40px;
+    }
+
+    /* Верхня навігація */
+    .top-nav {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+    }
+
+    .top-nav a {
+      text-decoration: none;
+      color: var(--text-muted);
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+    }
+
+    .top-nav a:hover {
+      border-color: var(--accent-soft);
+      background: rgba(0, 0, 0, 0.12);
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.03),
+        rgba(0, 0, 0, 0.25)
+      );
+      border-radius: var(--radius-xl);
+      padding: 32px 20px 28px;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    .hero-photo-wrapper {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      padding: 4px;
+      background: radial-gradient(circle at 30% 0, #f5d9b4, #5c2c28);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+
+    .hero-photo {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-size: cover;
+      background-position: center;
+      background-color: #b88a6a; /* резерв, якщо немає фото */
+      /* СЮДИ ЗАМІНИ URL НА СВОЄ ФОТО */
+      background-image: url("https://via.placeholder.com/320x320.png?text=Oksana");
+    }
+
+    .hero-name {
+      font-size: 1.6rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .hero-role {
+      font-size: 0.98rem;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .hero-subtitle {
+      max-width: 620px;
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .tag {
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--chip-border);
+      background: var(--chip-bg);
+      font-size: 0.78rem;
+      color: var(--accent-soft);
+      white-space: nowrap;
+    }
+
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 6px;
+    }
+
+    .hero-links a {
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 7px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--text-main);
+      background: rgba(0, 0, 0, 0.25);
+    }
+
+    .hero-links a.primary {
+      border-color: var(--accent);
+      background: rgba(245, 217, 180, 0.08);
+      color: var(--accent);
+    }
+
+    .hero-links a:hover {
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-links a.primary:hover {
+      background: rgba(245, 217, 180, 0.15);
+    }
+
+    /* Layout нижче */
+    .sections {
+      margin-top: 28px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 20px 18px 18px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .card h2 {
+      font-size: 1.05rem;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+    }
+
+    .card p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 8px;
+    }
+
+    .card ul {
+      list-style: none;
+      margin-top: 4px;
+    }
+
+    .card li {
+      font-size: 0.9rem;
+      color: var(--text-main);
+      margin-bottom: 4px;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .card li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--accent-soft);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .pill {
+      font-size: 0.8rem;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-muted);
+    }
+
+    .projects-list a {
+      display: block;
+      text-decoration: none;
+      color: var(--text-main);
+      font-size: 0.9rem;
+      padding: 8px 10px;
+      margin-bottom: 4px;
+      border-radius: 14px;
+      background: var(--card-bg-soft);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .projects-list a span {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .projects-list a:hover {
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    .contacts p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .contacts a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    .contacts a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 24px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-align: center;
+      opacity: 0.85;
+    }
+
+    @media (min-width: 720px) {
+      .sections {
+        grid-template-columns: 1.1fr 1fr;
+        grid-auto-rows: minmax(0, auto);
+      }
+
+      .card.span-2 {
+        grid-column: span 2;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- Навігація -->
+    <nav class="top-nav">
+      <a href="#about">Про мене</a>
+      <a href="#expertise">Експертиза</a>
+      <a href="#projects">Проєкти</a>
+      <a href="#contacts">Контакти</a>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="about">
+      <div class="hero-photo-wrapper">
+        <div class="hero-photo"></div>
+      </div>
+
+      <div class="hero-name">ОКСАНА ТИМЧЕНКО</div>
+      <div class="hero-role">
+        AI Automation · Google Workspace · Cloud & API · Finance / HR
+      </div>
+
+      <p class="hero-subtitle">
+        Допомагаю бізнесу переходити від ручної рутини до розумних автоматизованих
+        рішень на базі Google AI, Google Workspace, API та хмарної інфраструктури.
+      </p>
+
+      <div class="hero-tags">
+        <span class="tag">AI & Google Cloud</span>
+        <span class="tag">Document AI & OCR</span>
+        <span class="tag">Workspace Automation</span>
+        <span class="tag">API / Postman / Webhooks</span>
+        <span class="tag">Finance & HR Processes</span>
+      </div>
+
+      <div class="hero-links">
+        <a class="primary" href="https://www.linkedin.com/in/oksana-%D1%82ymchenko-714879a3" target="_blank" rel="noreferrer">
+          LinkedIn
+        </a>
+        <a href="mailto:belinskaya.oksana@gmail.com">Написати email</a>
+      </div>
+    </section>
+
+    <!-- Нижні секції -->
+    <div class="sections">
+
+      <section class="card" id="expertise">
+        <h2>Експертиза</h2>
+        <p>
+          Працюю на стику AI, фінансів, HR та хмарної автоматизації. Створюю системи,
+          які скорочують ручну роботу, зменшують кількість помилок і дають прозору
+          картину даних.
+        </p>
+        <ul>
+          <li>AI-рішення на базі Gemini / Vertex AI / Document AI</li>
+          <li>Автоматизація бізнес-процесів у Google Workspace</li>
+          <li>Проєктування API-орієнтованих інтеграцій</li>
+          <li>Оптимізація процесів у фінансах та HR</li>
+        </ul>
+        <div class="pill-row">
+          <span class="pill">AI Automation</span>
+          <span class="pill">Google Workspace Developer</span>
+          <span class="pill">Business Analysis</span>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Технології</h2>
+        <p><strong>AI & Cloud:</strong></p>
+        <ul>
+          <li>Gemini / Vertex AI, Document AI, Imagen</li>
+          <li>Cloud Run, Cloud Storage, Webhooks</li>
+        </ul>
+        <p><strong>Automation & Integration:</strong></p>
+        <ul>
+          <li>Apps Script, Sheets / Docs / Drive / Gmail</li>
+          <li>REST API, Postman, Make, n8n</li>
+        </ul>
+      </section>
+
+      <section class="card span-2" id="projects">
+        <h2>AI та автоматизаційні проєкти</h2>
+        <p>
+          Ключові приклади рішень, які я проєктую та впроваджую. Для кожного
+          можна зробити окремий репозиторій або сторінку з технічними деталями.
+        </p>
+
+        <div class="projects-list">
+          <a href="projects/inventory-bot.md">
+            Telegram Inventory Bot — Cloud Run + Sheets
+            <span>AI-складський облік, інтеграція з Google Sheets та Telegram.</span>
+          </a>
+          <a href="projects/ocr-validation.md">
+            OCR Data Validation System — Document AI
+            <span>Розпізнавання документів та автоматична валідація даних.</span>
+          </a>
+          <a href="projects/ai-agents.md">
+            HR & Finance AI Agents — Gemini API
+            <span>Генерація документів, перевірка записів, робочі сценарії.</span>
+          </a>
+          <a href="projects/automation-workflows.md">
+            Automation Workflows — Make / n8n
+            <span>No-code інтеграції між CRM, Telegram, Sheets та іншими сервісами.</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Сертифікації</h2>
+        <p><strong>Google AI Skill Badges:</strong></p>
+        <ul>
+          <li>Automate Data Capture with Document AI</li>
+          <li>Build AI Applications with Gemini & Imagen</li>
+          <li>Vertex AI Gemini API / Multimodal & RAG</li>
+          <li>Prompt Design in Vertex AI</li>
+        </ul>
+        <p><strong>Business Process Modeling (Luxoft):</strong></p>
+        <ul>
+          <li>BPMN Basics</li>
+          <li>BPMN Advanced</li>
+        </ul>
+      </section>
+
+      <section class="card contacts" id="contacts">
+        <h2>Контакти</h2>
+        <p>Email: <a href="mailto:belinskaya.oksana@gmail.com">belinskaya.oksana@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/oksana-%D1%82ymchenko-714879a3" target="_blank" rel="noreferrer">
+          профіль
+        </a></p>
+        <p>Місто: Київ, Україна</p>
+      </section>
+    </div>
+
+    <footer>
+      Відкрита до співпраці: проєкти, консалтинг, remote-формат.  
+      AI · Google Workspace · Cloud · Automation.
+    </footer>
+  </div>
+</body>
+</html>
