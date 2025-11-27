@@ -2,36 +2,28 @@
 <html lang="uk">
 <head>
   <meta charset="UTF-8" />
-  <title>Oksana Tymchenko — AI Automation & Workspace</title>
+  <title>Оксана Тимченко — AI & Automation Business Partner</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta
-    name="description"
-    content="Oksana Tymchenko — AI Automation, Google Workspace, Finance & HR, Cloud & API Integration."
-  />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      /* Тепла нейтральна преміум-палітра */
-      --bg-gradient-start: #f2ede9;
-      --bg-gradient-mid:   #e9e4df;
-      --bg-gradient-end:   #d9d5d2;
-
-      --card-bg:         rgba(255, 255, 255, 0.94);
-      --card-soft:       rgba(255, 255, 255, 0.99);
-
-      --accent:          #7a6f67;
-      --accent-soft:     #a28d7a;
-
-      --text-main:       #2f2a26;
-      --text-muted:      #6a5c52;
-
-      --chip-bg:         rgba(122, 111, 103, 0.06);
-      --chip-border:     rgba(122, 111, 103, 0.28);
-
-      --shadow-soft:     0 18px 40px rgba(0, 0, 0, 0.12);
-
-      --radius-lg:       24px;
-      --radius-xl:       40px;
+      --bg-main: #f4eee7;
+      --bg-card: #ffffff;
+      --text-main: #2f2620;
+      --text-muted: #7a6f64;
+      --accent: #c6a98a;
+      --accent-soft: #efe0d0;
+      --border-soft: #e7ddd2;
+      --shadow-soft: 0 12px 40px rgba(0, 0, 0, 0.06);
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --radius-pill: 999px;
+      --max-width: 1080px;
+      --transition-fast: 0.18s ease-out;
     }
 
     * {
@@ -41,444 +33,849 @@
     }
 
     body {
-      min-height: 100vh;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
-      background: radial-gradient(circle at top left,
-          var(--bg-gradient-start) 0%,
-          var(--bg-gradient-mid) 45%,
-          var(--bg-gradient-end) 100%);
+      font-family: "Nunito", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #f9f3ea 0, #f4eee7 42%, #efe5d9 100%);
       color: var(--text-main);
-      display: flex;
-      justify-content: center;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
     }
 
     .page {
-      width: 100%;
-      max-width: 960px;
+      min-height: 100vh;
       padding: 24px 16px 40px;
-    }
-
-    /* NAV */
-
-    .top-nav {
       display: flex;
-      justify-content: flex-end;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .shell {
+      width: 100%;
+      max-width: var(--max-width);
+    }
+
+    /* HEADER / NAV */
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
       gap: 12px;
-      margin-bottom: 14px;
-      font-size: 0.9rem;
     }
 
-    .top-nav a {
-      text-decoration: none;
-      color: var(--text-main);
-      padding: 6px 14px;
+    .logo-mark {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: "Inter", sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .logo-dot {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 20% 20%, #fdf8f0 0, #d5b99a 50%, #b28a63 100%);
+      box-shadow: 0 0 0 4px rgba(178, 138, 99, 0.18);
+    }
+
+    nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-link {
+      font-size: 0.82rem;
+      padding: 6px 10px;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.8);
-      background: rgba(255, 255, 255, 0.6);
-      backdrop-filter: blur(10px);
+      color: var(--text-muted);
+      background: transparent;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background var(--transition-fast), color var(--transition-fast), border var(--transition-fast), transform var(--transition-fast);
     }
 
-    .top-nav a:hover {
-      border-color: rgba(122, 111, 103, 0.35);
-      background: rgba(255, 255, 255, 0.9);
+    .nav-link:hover {
+      background: rgba(255, 255, 255, 0.8);
+      border-color: rgba(0, 0, 0, 0.04);
+      color: var(--text-main);
+      transform: translateY(-1px);
     }
 
     /* HERO */
 
     .hero {
-      background: radial-gradient(circle at top,
-          rgba(255, 255, 255, 0.97),
-          rgba(255, 255, 255, 0.92));
-      border-radius: var(--radius-xl);
-      padding: 32px 20px 26px;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.3fr);
+      gap: 24px;
+      align-items: center;
+      margin-bottom: 28px;
+      padding: 20px 22px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, #fffaf4 0%, #f3e5d6 50%, #f9f3ea 100%);
       box-shadow: var(--shadow-soft);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      border: 1px solid rgba(255, 255, 255, 0.98);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      position: relative;
+      overflow: hidden;
     }
 
-    .hero-photo-wrapper {
-      width: 170px;
-      height: 170px;
-      border-radius: 50%;
-      padding: 4px;
-      background: conic-gradient(
-        from 210deg,
-        #f2ede9,
-        #d9d5d2,
-        #c7b7a3,
-        #f2ede9
-      );
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 18px;
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.9) 0, transparent 55%);
+      pointer-events: none;
+      opacity: 0.8;
     }
-.hero-photo {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background-size: cover;
-  background-position: center;
-  background-color: #d8c9bc;
 
-  background-image: url("https://raw.githubusercontent.com/belinskayaoksana/portfolio/main/oksana.jpg");
-}
+    .hero-left,
+    .hero-right {
+      position: relative;
+      z-index: 1;
+    }
 
-.hero-name {
-  font-size: 1.6rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: 6px;
-}
+    .hero-kicker {
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+      font-family: "Inter", sans-serif;
+    }
 
+    .hero-name {
+      font-family: "Inter", sans-serif;
+      font-size: 1.9rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
     }
 
     .hero-role {
-      font-size: 0.96rem;
-      font-weight: 600;
-      color: var(--accent);
-      letter-spacing: 0.08em;
+      font-family: "Inter", sans-serif;
+      font-size: 0.92rem;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
+      color: var(--text-muted);
       margin-bottom: 14px;
     }
 
-    .hero-subtitle {
-      max-width: 640px;
+    .hero-lead {
       font-size: 0.98rem;
-      color: var(--text-muted);
-      margin-bottom: 18px;
-      line-height: 1.5;
+      max-width: 540px;
+      color: var(--text-main);
+      margin-bottom: 16px;
     }
 
     .hero-tags {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
-      gap: 8px;
-      margin-bottom: 12px;
+      gap: 6px;
+      margin-bottom: 14px;
     }
 
     .tag {
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--chip-border);
-      background: var(--chip-bg);
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 12px;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(0, 0, 0, 0.03);
       font-size: 0.78rem;
-      color: var(--accent);
-      white-space: nowrap;
+      color: var(--text-muted);
+      gap: 6px;
     }
 
-    .hero-links {
+    .tag-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      justify-content: center;
       margin-top: 6px;
     }
 
-    .hero-links a {
+    .btn-primary,
+    .btn-ghost {
+      font-family: "Inter", sans-serif;
+      font-size: 0.86rem;
+      padding: 9px 16px;
+      border-radius: var(--radius-pill);
+      border: 1px solid transparent;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       text-decoration: none;
-      font-size: 0.9rem;
-      padding: 8px 18px;
-      border-radius: 999px;
-      border: 1px solid rgba(122, 111, 103, 0.4);
-      color: var(--accent);
-      background: rgba(255, 255, 255, 0.95);
+      transition: background var(--transition-fast), color var(--transition-fast), border var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
     }
 
-    .hero-links a.primary {
-      background: var(--accent-soft);
-      color: #ffffff;
-      border-color: var(--accent-soft);
+    .btn-primary {
+      background: #2f2620;
+      color: #fdf8f0;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
     }
 
-    .hero-links a:hover {
-      background: #ffffff;
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.28);
+      background: #221a15;
     }
 
-    .hero-links a.primary:hover {
-      background: #8d7864;
-      border-color: #8d7864;
-    }
-
-    /* CONTENT SECTIONS */
-
-    .sections {
-      margin-top: 28px;
-      display: grid;
-      gap: 18px;
-    }
-
-    .card {
-      background: var(--card-bg);
-      border-radius: var(--radius-lg);
-      padding: 20px 18px 18px;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(255, 255, 255, 0.98);
-    }
-
-    .card h2 {
-      font-size: 1rem;
-      margin-bottom: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.13em;
-      color: var(--accent);
-    }
-
-    .card p {
-      font-size: 0.92rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-      margin-bottom: 8px;
-    }
-
-    .card ul {
-      list-style: none;
-      margin-top: 4px;
-      padding-left: 0;
-    }
-
-    .card li {
-      font-size: 0.9rem;
+    .btn-ghost {
+      background: rgba(255, 255, 255, 0.8);
+      border-color: rgba(0, 0, 0, 0.06);
       color: var(--text-main);
-      margin-bottom: 5px;
-      padding-left: 14px;
+    }
+
+    .btn-ghost:hover {
+      background: #fff;
+      transform: translateY(-1px);
+    }
+
+    .btn-icon {
+      font-size: 1rem;
+    }
+
+    .hero-right {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-photo-wrapper {
+      width: 230px;
+      height: 230px;
+      border-radius: 50%;
+      padding: 6px;
+      background: radial-gradient(circle at 25% 15%, #fffdf8 0, #dcc1a3 45%, #b1845f 100%);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
       position: relative;
     }
 
-    .card li::before {
-      content: "•";
+    .hero-photo {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-size: cover;
+      background-position: center;
+      background-color: #d8c9bc;
+      background-image: url("https://raw.githubusercontent.com/belinskayaoksana/portfolio/main/oksana.jpg");
+    }
+
+    .hero-badge {
+      position: absolute;
+      bottom: 8px;
+      right: -4px;
+      padding: 6px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(47, 38, 32, 0.92);
+      color: #fdf8f0;
+      font-size: 0.72rem;
+      font-family: "Inter", sans-serif;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 8px 26px rgba(0, 0, 0, 0.45);
+    }
+
+    .hero-badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #34c759;
+      box-shadow: 0 0 0 3px rgba(52, 199, 89, 0.25);
+    }
+
+    /* SECTIONS */
+
+    main {
+      margin-top: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .section {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: var(--radius-lg);
+      padding: 20px 20px 22px;
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 10px 32px rgba(0, 0, 0, 0.04);
+    }
+
+    .section-title {
+      font-family: "Inter", sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      color: var(--text-main);
+    }
+
+    .section-intro {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .section + .section {
+      margin-top: 0;
+    }
+
+    /* GRID UTILITIES */
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.1fr);
+      gap: 18px;
+    }
+
+    /* EXPERTISE */
+
+    .list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .list-item {
+      position: relative;
+      padding-left: 14px;
+      font-size: 0.94rem;
+    }
+
+    .list-item::before {
+      content: "";
       position: absolute;
       left: 0;
-      top: 0;
-      color: var(--accent-soft);
+      top: 9px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
     }
+
+    .list-item-title {
+      font-weight: 600;
+    }
+
+    .list-item-text {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* TAG GROUPS */
 
     .pill-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 8px;
+      gap: 8px;
     }
 
     .pill {
-      font-size: 0.8rem;
-      padding: 4px 9px;
-      border-radius: 999px;
-      background: rgba(122, 111, 103, 0.06);
-      color: var(--accent);
-      border: 1px solid rgba(122, 111, 103, 0.25);
-    }
-
-    .projects-list a {
-      display: block;
-      text-decoration: none;
-      color: var(--text-main);
-      font-size: 0.9rem;
-      padding: 9px 11px;
-      margin-bottom: 6px;
-      border-radius: 16px;
-      background: var(--card-soft);
+      padding: 5px 11px;
+      border-radius: var(--radius-pill);
+      background: var(--accent-soft);
+      font-size: 0.78rem;
+      color: #5b4a3a;
       border: 1px solid rgba(0, 0, 0, 0.03);
     }
 
-    .projects-list a span {
-      display: block;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-top: 2px;
+    /* PROJECTS */
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 14px;
+      margin-top: 6px;
     }
 
-    .projects-list a:hover {
-      border-color: rgba(122, 111, 103, 0.35);
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+    .project-card {
+      padding: 14px 14px 13px;
+      border-radius: var(--radius-md);
+      background: #fffdf9;
+      border: 1px solid rgba(0, 0, 0, 0.02);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border var(--transition-fast), background var(--transition-fast);
     }
 
-    .contacts p {
-      font-size: 0.92rem;
+    .project-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+      border-color: rgba(0, 0, 0, 0.06);
+      background: #ffffff;
+    }
+
+    .project-title {
+      font-family: "Inter", sans-serif;
+      font-size: 0.98rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .project-stack {
+      font-size: 0.78rem;
       color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .project-desc {
+      font-size: 0.9rem;
+      color: var(--text-main);
+    }
+
+    /* CERTS */
+
+    .cert-group-title {
+      font-family: "Inter", sans-serif;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-top: 4px;
       margin-bottom: 4px;
+      color: var(--text-muted);
     }
 
-    .contacts a {
-      color: var(--accent);
-      text-decoration: none;
+    .cert-list {
+      list-style: none;
+      margin-left: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 0.9rem;
     }
 
-    .contacts a:hover {
-      text-decoration: underline;
+    /* HOW I WORK / VALUE */
+
+    .bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 4px;
     }
+
+    .bullet-item {
+      font-size: 0.9rem;
+      color: var(--text-main);
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .bullet-item::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--text-muted);
+    }
+
+    /* FOOTER */
 
     footer {
-      margin-top: 26px;
+      margin-top: 22px;
       font-size: 0.8rem;
-      color: rgba(47, 42, 38, 0.8);
+      color: var(--text-muted);
       text-align: center;
     }
 
-    @media (min-width: 720px) {
-      .sections {
-        grid-template-columns: 1.1fr 1fr;
-        grid-auto-rows: minmax(0, auto);
+    /* RESPONSIVE */
+
+    @media (max-width: 840px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
       }
-      .card.span-2 {
-        grid-column: span 2;
+      .hero-right {
+        order: -1;
+      }
+      .hero-photo-wrapper {
+        width: 190px;
+        height: 190px;
+      }
+      .two-col {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (min-width: 720px) {
+      .projects-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .hero {
+        padding: 18px 16px;
+      }
+      .section {
+        padding: 16px 14px 18px;
       }
     }
   </style>
 </head>
 <body>
   <div class="page">
-    <!-- NAV -->
-    <nav class="top-nav">
-      <a href="#about">Про мене</a>
-      <a href="#expertise">Експертиза</a>
-      <a href="#projects">Проєкти</a>
-      <a href="#contacts">Контакти</a>
-    </nav>
+    <div class="shell">
 
-    <!-- HERO -->
-    <section class="hero" id="about">
-      <div class="hero-photo-wrapper">
-        <div class="hero-photo"></div>
-      </div>
+      <header>
+        <div class="logo-mark">
+          <div class="logo-dot"></div>
+          <span>AI &amp; AUTOMATION</span>
+        </div>
+        <nav>
+          <a href="#about" class="nav-link">Про мене</a>
+          <a href="#expertise" class="nav-link">Експертиза</a>
+          <a href="#projects" class="nav-link">Проєкти</a>
+          <a href="#certs" class="nav-link">Сертифікації</a>
+          <a href="#partner" class="nav-link">Партнерство</a>
+        </nav>
+      </header>
 
-      <div class="hero-name">ОКСАНА ТИМЧЕНКО</div>
-      <div class="hero-role">
-        AI Automation · Google Workspace · Cloud & API · Finance / HR
-      </div>
+      <section class="hero">
+        <div class="hero-left">
+          <div class="hero-kicker">Оксана Тимченко</div>
+          <h1 class="hero-name">AI &amp; Automation</h1>
+          <div class="hero-role">Business Partner</div>
 
-      <p class="hero-subtitle">
-        Допомагаю бізнесу перейти від ручної рутини до розумних автоматизованих рішень
-        на базі Google AI, Google Workspace, API та хмарної інфраструктури.
-      </p>
+          <p class="hero-lead">
+            Допомагаю бізнесу перейти від ручної рутини до прозорих, автоматизованих фінансових,
+            HR та операційних процесів на базі Google AI, Google Workspace та хмарної інфраструктури.
+          </p>
 
-      <div class="hero-tags">
-        <span class="tag">AI & Google Cloud</span>
-        <span class="tag">Document AI & OCR</span>
-        <span class="tag">Workspace Automation</span>
-        <span class="tag">API / Postman / Webhooks</span>
-        <span class="tag">Finance & HR Processes</span>
-      </div>
+          <div class="hero-tags">
+            <span class="tag"><span class="tag-dot"></span> Google AI · Vertex AI · Document AI</span>
+            <span class="tag"><span class="tag-dot"></span> Finance · HR · Operations</span>
+            <span class="tag"><span class="tag-dot"></span> Telegram · Workspace · Automation</span>
+          </div>
 
-      <div class="hero-links">
-        <a
-          class="primary"
-          href="https://www.linkedin.com/in/oksana-%D1%82ymchenko-714879a3"
-          target="_blank"
-          rel="noreferrer"
-        >
-          LinkedIn
-        </a>
-        <a href="mailto:belinskaya.oksana@gmail.com">Написати email</a>
-      </div>
-    </section>
+          <div class="hero-actions">
+            <a href="https://www.linkedin.com/in/oksana-tymchenko-714879a3" target="_blank" class="btn-primary">
+              <span class="btn-icon">↗</span> Перейти в LinkedIn
+            </a>
+            <a href="https://t.me/TymchenkoOksana" target="_blank" class="btn-ghost">
+              <span class="btn-icon">✉</span> Написати в Telegram
+            </a>
+          </div>
+        </div>
 
-    <!-- SECTIONS -->
-    <div class="sections">
-      <section class="card" id="expertise">
-        <h2>Експертиза</h2>
-        <p>
-          Працюю на перетині AI, фінансів, HR та хмарної автоматизації. Створюю системи,
-          які зменшують ручну роботу, знижують кількість помилок і дають прозору картину
-          даних для рішень.
-        </p>
-        <ul>
-          <li>AI-рішення на базі Gemini / Vertex AI / Document AI</li>
-          <li>Автоматизація бізнес-процесів у Google Workspace</li>
-          <li>Проєктування API-орієнтованих інтеграцій</li>
-          <li>Оптимізація фінансових та HR-процесів</li>
-        </ul>
-        <div class="pill-row">
-          <span class="pill">AI Automation</span>
-          <span class="pill">Google Workspace</span>
-          <span class="pill">Business Analysis</span>
+        <div class="hero-right">
+          <div class="hero-photo-wrapper">
+            <div class="hero-photo"></div>
+            <div class="hero-badge">
+              <span class="hero-badge-dot"></span>
+              <span>Google AI · Automation</span>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section class="card">
-        <h2>Технології</h2>
-        <p><strong>AI & Cloud:</strong></p>
-        <ul>
-          <li>Gemini / Vertex AI, Document AI, Imagen</li>
-          <li>Cloud Run, Cloud Storage, Webhooks</li>
-        </ul>
-        <p><strong>Automation & Integration:</strong></p>
-        <ul>
-          <li>Apps Script, Sheets / Docs / Drive / Gmail</li>
-          <li>REST API, Postman, Make, n8n</li>
-        </ul>
-      </section>
+      <main>
 
-      <section class="card span-2" id="projects">
-        <h2>AI та автоматизаційні проєкти</h2>
-        <p>
-          Короткий перелік напрямів, над якими працюю. Для кожного з них можна
-          зробити окрему технічну сторінку чи репозиторій.
-        </p>
+        <!-- ПРО МЕНЕ + КОНТАКТИ -->
+        <section id="about" class="section two-col">
+          <div>
+            <h2 class="section-title">Про мене</h2>
+            <p class="section-intro">
+              Працюю на перетині AI, фінансів, HR та хмарної автоматизації. Маю досвід роботи у великих українських
+              компаніях-лідерах, де відповідала за фінанси, аналітику й операційні процеси.
+            </p>
+            <p class="section-intro">
+              Поєдную бізнес-логіку та практичну роботу з Google AI, Workspace і хмарними сервісами. Будую рішення,
+              які зменшують ручну роботу, знижують кількість помилок і дають прозору картину для управлінських рішень.
+            </p>
+          </div>
+          <div>
+            <h2 class="section-title">Контакти</h2>
+            <p class="section-intro">Звʼязатися зі мною найзручніше через LinkedIn або Telegram.</p>
+            <ul class="bullets">
+              <li class="bullet-item">
+                <strong>LinkedIn:</strong>
+                <a href="https://www.linkedin.com/in/oksana-tymchenko-714879a3" target="_blank">
+                  /oksana-tymchenko-714879a3
+                </a>
+              </li>
+              <li class="bullet-item">
+                <strong>Telegram:</strong>
+                <a href="https://t.me/TymchenkoOksana" target="_blank">@TymchenkoOksana</a>
+              </li>
+              <li class="bullet-item">
+                <strong>Email:</strong>
+                <a href="mailto:belinskaya.oksana@gmail.com">belinskaya.oksana@gmail.com</a>
+              </li>
+              <li class="bullet-item">
+                <strong>Локація:</strong> Київ, Україна
+              </li>
+            </ul>
+          </div>
+        </section>
 
-        <div class="projects-list">
-          <a href="#">
-            Telegram Inventory Bot — Cloud Run + Sheets
-            <span>AI-орієнтований складський облік з інтеграцією Google Sheets та Telegram.</span>
-          </a>
-          <a href="#">
-            OCR Data Validation System — Document AI
-            <span>Розпізнавання документів та автоматична валідація даних за бізнес-правилами.</span>
-          </a>
-          <a href="#">
-            HR & Finance AI Agents — Gemini API
-            <span>Генерація документів, перевірка записів, аналітика та робочі AI-сценарії.</span>
-          </a>
-          <a href="#">
-            Automation Workflows — Make / n8n
-            <span>No-code інтеграції між CRM, Telegram, Google Sheets та іншими сервісами.</span>
-          </a>
-        </div>
-      </section>
+        <!-- ЕКСПЕРТИЗА -->
+        <section id="expertise" class="section">
+          <h2 class="section-title">Експертиза</h2>
+          <p class="section-intro">
+            Поєдную досвід фінансиста й бізнес-аналітика з глибоким зануренням в AI та хмарну автоматизацію.
+            Працюю не як фрілансер, а як зовнішній бізнес-партнер, який будує системні рішення.
+          </p>
 
-      <section class="card">
-        <h2>Сертифікації</h2>
-        <p><strong>Google AI Skill Badges:</strong></p>
-        <ul>
-          <li>Automate Data Capture at Scale with Document AI</li>
-          <li>Build Real-World AI Applications with Gemini & Imagen</li>
-          <li>Explore Generative AI with Vertex AI Gemini API</li>
-          <li>Inspect Rich Documents with Gemini Multimodality & RAG</li>
-          <li>Prompt Design in Vertex AI</li>
-        </ul>
-        <p><strong>Business Process Modeling (Luxoft):</strong></p>
-        <ul>
-          <li>BPMN Basics</li>
-          <li>BPMN Advanced</li>
-        </ul>
-      </section>
+          <div class="two-col">
+            <div>
+              <ul class="list">
+                <li class="list-item">
+                  <div class="list-item-title">AI-рішення (Gemini / Vertex AI / Document AI)</div>
+                  <div class="list-item-text">
+                    AI-агенти, чат-помічники, автоматичне читання документів, сценарії для HR та фінансів.
+                  </div>
+                </li>
+                <li class="list-item">
+                  <div class="list-item-title">Автоматизація бізнес-процесів у Google Workspace</div>
+                  <div class="list-item-text">
+                    Розумні таблиці, дашборди, погодження, оповіщення, форми та звіти, які замінюють ручну рутину.
+                  </div>
+                </li>
+                <li class="list-item">
+                  <div class="list-item-title">API-інтеграції та хмарні сервіси</div>
+                  <div class="list-item-text">
+                    Зʼєднання CRM, HRM, бухгалтерії, ботів, Google Workspace і хмари в єдині робочі ланцюжки.
+                  </div>
+                </li>
+              </ul>
+            </div>
 
-      <section class="card contacts" id="contacts">
-        <h2>Контакти</h2>
-        <p>Email: <a href="mailto:belinskaya.oksana@gmail.com">belinskaya.oksana@gmail.com</a></p>
-        <p>
-          LinkedIn:
-          <a
-            href="https://www.linkedin.com/in/oksana-%D1%82ymchenko-714879a3"
-            target="_blank"
-            rel="noreferrer"
-          >
-            профіль
-          </a>
-        </p>
-        <p>Київ, Україна</p>
-      </section>
+            <div>
+              <ul class="list">
+                <li class="list-item">
+                  <div class="list-item-title">Фінансові процеси</div>
+                  <div class="list-item-text">
+                    Платіжні календарі, бюджетування, автозвіти, контроль витрат і звірки даних.
+                  </div>
+                </li>
+                <li class="list-item">
+                  <div class="list-item-title">HR-процеси</div>
+                  <div class="list-item-text">
+                    Документообіг, опитування, аналітика, нагадування та розсилки для команд.
+                  </div>
+                </li>
+                <li class="list-item">
+                  <div class="list-item-title">BPMN та моделювання процесів</div>
+                  <div class="list-item-text">
+                    Мапа «as is» та дизайн «to be» перед автоматизацією та AI-впровадженням.
+                  </div>
+                </li>
+              </ul>
+
+              <div style="margin-top: 10px;">
+                <div class="section-intro" style="margin-bottom: 6px;">Фокус-області:</div>
+                <div class="pill-row">
+                  <span class="pill">Фінанси &amp; звітність</span>
+                  <span class="pill">HR &amp; документообіг</span>
+                  <span class="pill">Операційка</span>
+                  <span class="pill">AI-агенти</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ТЕХНОЛОГІЇ -->
+        <section class="section">
+          <h2 class="section-title">Технології</h2>
+          <p class="section-intro">
+            Створюю хмарні системи, які працюють всередині Google Workspace та через Telegram, читають документи,
+            виконують розрахунки, перевіряють дані й сповіщають команди.
+          </p>
+
+          <div class="two-col">
+            <div>
+              <h3 class="cert-group-title">AI &amp; Cloud</h3>
+              <ul class="cert-list">
+                <li>Gemini / Vertex AI</li>
+                <li>Document AI, Imagen</li>
+                <li>Cloud Run, Cloud Functions</li>
+                <li>Cloud Storage</li>
+                <li>Webhooks / API</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="cert-group-title">Automation &amp; Integration</h3>
+              <ul class="cert-list">
+                <li>Apps Script, Google Sheets / Docs / Drive / Gmail</li>
+                <li>Make, n8n</li>
+                <li>REST API, Postman</li>
+                <li>Тригери, логування, нотифікації</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- ПРОЄКТИ -->
+        <section id="projects" class="section">
+          <h2 class="section-title">AI та автоматизаційні проєкти</h2>
+          <p class="section-intro">
+            Короткий перелік напрямів, над якими працюю як бізнес-партнер.
+            Для кожного можна створити окрему сторінку з описом задач, цілей, результатів та демо-відео.
+          </p>
+
+          <div class="projects-grid">
+            <article class="project-card">
+              <h3 class="project-title">Restaurant Inventory &amp; Assets Bot</h3>
+              <p class="project-stack">Cloud Run · Telegram · Google Sheets</p>
+              <p class="project-desc">
+                AI-орієнтована система складського обліку та інвентаризації для ресторанів.
+                Пошук, сканування, облік, переміщення, списання, коментарі та фото — все через Telegram-бота,
+                з автоматичною синхронізацією в Google Sheets і Telegram-каналах.
+              </p>
+            </article>
+
+            <article class="project-card">
+              <h3 class="project-title">Document AI Compliance Pipeline</h3>
+              <p class="project-stack">Document AI · Sheets · Gmail</p>
+              <p class="project-desc">
+                Автоматичне читання рахунків, актів, договорів, валідація даних за бізнес-правилами
+                та формування таблиць з помилками. Сповіщення надходять у пошту або Telegram.
+              </p>
+            </article>
+
+            <article class="project-card">
+              <h3 class="project-title">HR &amp; Payroll AI Assistant</h3>
+              <p class="project-stack">Gemini API · Google Workspace · Telegram</p>
+              <p class="project-desc">
+                AI-агент для HR та фінансів: формує чернетки наказів, перевіряє таблиці, збирає аналітику,
+                допомагає з рутинними HR-процесами та надсилає результати в бота чи канали.
+              </p>
+            </article>
+
+            <article class="project-card">
+              <h3 class="project-title">Cash Flow &amp; Budget Automation System</h3>
+              <p class="project-stack">Apps Script · Sheets · Gemini</p>
+              <p class="project-desc">
+                Система автоматичного платіжного календаря, прогнозу ДДС, розподілу сум за правилами
+                та формування звітів. AI додає пояснення та коментарі прямо в таблицях.
+              </p>
+            </article>
+
+            <article class="project-card">
+              <h3 class="project-title">No-Code Automation Hub for SMB</h3>
+              <p class="project-stack">Make / n8n · CRM · Workspace</p>
+              <p class="project-desc">
+                Хаб інтеграцій для малого та середнього бізнесу, де CRM, Telegram, Google Sheets, бухгалтерія
+                та аналітика працюють як єдина система без залучення розробників.
+              </p>
+            </article>
+
+            <article class="project-card">
+              <h3 class="project-title">AI Communication System for Sports Academy</h3>
+              <p class="project-stack">Telegram · Gemini · Google Sheets</p>
+              <p class="project-desc">
+                Система AI-комунікацій для дитячої футбольної академії: розклади, нагадування, персоналізовані
+                привітання, опитування та навчальні матеріали з централізованим зберіганням даних.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <!-- СЕРТИФІКАЦІЇ -->
+        <section id="certs" class="section">
+          <h2 class="section-title">Сертифікації</h2>
+          <p class="section-intro">
+            Підтверджують практичний досвід роботи з Google AI, хмарними сервісами та моделюванням бізнес-процесів.
+          </p>
+
+          <div class="two-col">
+            <div>
+              <h3 class="cert-group-title">Google AI Skill Badges</h3>
+              <ul class="cert-list">
+                <li>Automate Data Capture at Scale with Document AI</li>
+                <li>Build Real-World AI Applications with Gemini &amp; Imagen</li>
+                <li>Explore Generative AI with Vertex AI Gemini API</li>
+                <li>Inspect Rich Documents with Gemini Multimodality &amp; RAG</li>
+                <li>Prompt Design in Vertex AI</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="cert-group-title">Business Process Modeling (Luxoft)</h3>
+              <ul class="cert-list">
+                <li>BPMN Basics</li>
+                <li>BPMN Advanced</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- ПАРТНЕРСТВО / ФОРМАТ РОБОТИ -->
+        <section id="partner" class="section">
+          <h2 class="section-title">Як я співпрацюю з бізнесом</h2>
+          <p class="section-intro">
+            Працюю як зовнішній <strong>AI &amp; Automation Business Partner</strong>, а не як фріланс-виконавець.
+            Включаюсь у процеси разом з командою та будую рішення, які працюють у реальній операційці.
+          </p>
+
+          <div class="two-col">
+            <div>
+              <ul class="bullets">
+                <li class="bullet-item">
+                  <strong>Глибоке занурення.</strong> Аналіз фінансів, HR, операцій, даних і каналів комунікації.
+                </li>
+                <li class="bullet-item">
+                  <strong>Стратегія автоматизації та AI-розвитку.</strong> Що робимо зараз, що за 1–3 місяці, що формує фундамент на рік.
+                </li>
+                <li class="bullet-item">
+                  <strong>Проєктування та запуск рішень.</strong> Хмарні сервіси, боти, інтеграції, документообіг, звітність.
+                </li>
+                <li class="bullet-item">
+                  <strong>Впровадження.</strong> Інструкції, навчання, логування, контроль якості даних.
+                </li>
+                <li class="bullet-item">
+                  <strong>Партнерство та розвиток.</strong> Постійна оптимізація, масштабування та супровід.
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="cert-group-title">Чим це корисно бізнесу</h3>
+              <ul class="bullets">
+                <li class="bullet-item">Менше ручної роботи, менше помилок і затримок.</li>
+                <li class="bullet-item">Прозора аналітика в режимі реального часу.</li>
+                <li class="bullet-item">AI-агенти, які підсилюють команди, а не замінюють людей.</li>
+                <li class="bullet-item">Автоматичні звіти, документи та сповіщення.</li>
+                <li class="bullet-item">Єдина система замість хаотичних таблиць і чатів.</li>
+                <li class="bullet-item">Економія часу керівників і ключових співробітників.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        Оксана Тимченко · AI &amp; Automation Business Partner · Google AI · Telegram · Workspace · 2025
+      </footer>
     </div>
-
-    <footer>
-      Відкрита до співпраці: проєкти, консалтинг, remote-формат ·
-      AI · Google Workspace · Cloud · Automation.
-    </footer>
   </div>
 </body>
 </html>
